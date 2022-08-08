@@ -3,7 +3,7 @@ Praction with Iterators. Implementation of interfaces, extendtion and overriding
 using ready objects.
 
 ## Description
-Project outputs the rsult of work this classes or interfaces:
+Project outputs the result of work this classes or interfaces:
 * Iterator
 * IteratorAggregate
 * ArrayAccess
