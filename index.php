@@ -30,3 +30,42 @@ echo '<br />';
 
 $c = new MyArrayAccessIterator($array);
 echo $c[3] . '<br />';
+
+$d = new ArrayObject($array);
+echo '<br />' . $d[3] . '(through ArrayObject) <br /><br />';
+foreach ($d as $item){
+    echo  $item . '(through ArrayObject with foreach) <br />';
+}
+
+$e = new ArrayObject(
+  new class{
+      private $zero = 0;
+      public $first = 1;
+      public $second = 2;
+      public $third = 3;
+      protected $fifth = 5;
+
+      public function __construct()
+      {
+          $this->fourth = 4;
+      }
+  }
+);
+echo '<br />Iteration the public properties of the object thorugh ArrayObject:<br />';
+foreach ($e as $key => $value) {
+    echo $key . '=>' . $value . '<br />';
+}
+
+echo '<br />Usage of DirectoryIterator:<br />';
+$dir = new DirectoryIterator('.');
+echo $dir->current()->getType() . ' ' . $dir->current()->getPath(). ' (current dir)<br />';
+foreach($dir as $file){
+    switch($file){
+        case $file->isDir() :
+            echo 'dir '. $file . '<br />';
+            break;
+        case $file->isFile() :
+            echo 'file ' . $file . ' '. $file->getSize() . ' Bytes <br />';
+            break;
+    }
+}
