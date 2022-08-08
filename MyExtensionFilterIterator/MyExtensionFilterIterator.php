@@ -15,11 +15,10 @@ class MyExtensionFilterIterator extends \FilterIterator
 
     public function accept()
     {
-        if (!$this->it->isDir()){
+        if (!$this->it->isDir()) {
             $ext = pathinfo($this->current(), PATHINFO_EXTENSION);
             return $ext != $this->ext;
         }
         return true;
     }
-
 }

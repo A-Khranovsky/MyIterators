@@ -1,8 +1,6 @@
 <?php
 
-
 namespace LimitMyIterator;
-
 
 use MyIterator\MyIterator;
 
@@ -22,5 +20,4 @@ class LimitMyIterator implements \IteratorAggregate
         $limited = array_slice($this->collection, 0, $this->limit);
         return new MyIterator($limited);
     }
-
 }

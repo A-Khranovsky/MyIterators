@@ -1,8 +1,6 @@
 <?php
 
-
 namespace MyArrayAccessIterator;
-
 
 class MyArrayAccessIterator implements \Iterator, \ArrayAccess
 {
