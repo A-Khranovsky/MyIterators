@@ -5,6 +5,7 @@ spl_autoload_register();
 use MyIterator\MyIterator;
 use LimitMyIterator\LimitMyIterator;
 use MyArrayAccessIterator\MyArrayAccessIterator;
+use MyExtensionFilterIterator\MyExtensionFilterIterator;
 
 $array = [
     'first',
@@ -68,4 +69,10 @@ foreach($dir as $file){
             echo 'file ' . $file . ' '. $file->getSize() . ' Bytes <br />';
             break;
     }
+}
+
+echo '<br />Usage of FilterIterator. Outputting directories, files, avoiding php-files:<br />';
+$filter = new MyExtensionFilterIterator(new DirectoryIterator('.'), 'php');
+foreach ($filter as $file){
+    echo $file. '<br />';
 }
