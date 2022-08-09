@@ -1,6 +1,7 @@
 ## Vocation
 Praction with Iterators. Implementation of interfaces, extendtion and overriding,
-using ready objects.
+using ready objects, serialization to JSON-format and unserialization with implamantation Serializable
+interface.
 
 ## Description
 Project outputs the result of work this classes or interfaces:
@@ -12,6 +13,8 @@ Project outputs the result of work this classes or interfaces:
 * FilterIterator
 * LimitIterator
 * RecursiveIteratoIterator
+* MyArrayAccessCountableIterator (extends MyArrayAccessIterator, implements Countable)
+* myArrayAccessSerilzableIterator (extends MyArrayAccessIterator ,implaments Serializable)
   
 ## How to run
 * Clone the project.
@@ -394,4 +397,25 @@ Usage of RecurciveItarator:
 -./MyIterator/..
 -./MyIterator/MyIterator.php
 ./README.md
+
+Usage of extended from MyAccessIterator class MyArrayAccessContableIterator with Countable interface implementation:
+MyArrayAcccessCountableIterator has 5 items
+
+Usage of extended from MyAccessIterator class MyArrayAccessSerializableIterator with serializeable interface implementation:
+Array is given as parameter to MyArrayAccessSerialzableIterator:
+
+Array
+(
+[first] => 1
+[second] => 2
+)
+
+Values of array was given (reached by foreach):
+1
+2
+
+Result of the serialized object:
+
+string(22) "{"first":1,"second":2}"
+
 ```

@@ -4,8 +4,8 @@ namespace MyArrayAccessIterator;
 
 class MyArrayAccessIterator implements \Iterator, \ArrayAccess
 {
-    private $index;
-    private $collection;
+    protected $index;
+    protected $collection;
 
     public function __construct($collection)
     {

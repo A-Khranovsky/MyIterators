@@ -2,6 +2,8 @@
 
 spl_autoload_register();
 
+use MyArrayAccessIterator\MyArrayAccessCountableIterator;
+use MyArrayAccessIterator\MyArrayAccessSerialzableIterator;
 use MyIterator\MyIterator;
 use LimitMyIterator\LimitMyIterator;
 use MyArrayAccessIterator\MyArrayAccessIterator;
@@ -101,3 +103,24 @@ $dir = new RecursiveIteratorIterator(
 foreach ($dir as $file) {
     echo str_repeat('-', $dir->getDepth()) . "$file<br/>";
 }
+
+echo '<br /><strong>Usage of extended from MyAccessIterator class MyArrayAccessContableIterator
+    with Countable interface implementation:</strong><br />';
+$g = new MyArrayAccessCountableIterator($array);
+echo 'MyArrayAcccessCountableIterator has ' . $g->count() . ' items';
+
+echo '<br /><br /><strong>Usage of extended from MyAccessIterator class MyArrayAccessSerializableIterator
+    with serializeable interface implementation:</strong><br />';
+$array1 = ['first' => 1, 'second' => 2];
+echo 'Array is given as parameter to MyArrayAccessSerialzableIterator:',
+    '<pre>', print_r($array1, true), '</pre>';
+$h = new MyArrayAccessSerialzableIterator($array1);
+$result = $h->serialize();
+echo 'Values of array was given (reached by foreach):<br />';
+$h = $h->unserialize($result);
+foreach ($h as $item){
+    echo $item . '<br />';
+}
+echo '<br />Result of the serialized object:<pre>';
+var_dump($result);
+echo '</pre>';
