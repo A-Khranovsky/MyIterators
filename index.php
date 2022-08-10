@@ -149,3 +149,22 @@ function ReadInDir($dir)
     }
 }
 ReadInDir($dir);
+
+echo '<br /><strong>Usage of the SplDoublyLinkedList class:</strong><br />';
+$list = new SplDoublyLinkedList();
+$list->push('a');
+$list->push('b');
+$list->push('c');
+$list->push('d');
+
+echo "FIFO (First In First Out) :<br />";
+$list->setIteratorMode(SplDoublyLinkedList::IT_MODE_FIFO);
+for ($list->rewind(); $list->valid(); $list->next()) {
+    echo $list->current()."<br />";
+}
+
+echo "LIFO (Last In First Out) :<br />";
+$list->setIteratorMode(SplDoublyLinkedList::IT_MODE_LIFO);
+for ($list->rewind(); $list->valid(); $list->next()) {
+    echo $list->current()."<br />";
+}

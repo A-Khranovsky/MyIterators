@@ -15,7 +15,8 @@ Project outputs the result of work this classes or interfaces:
 * RecursiveIteratoIterator
 * MyArrayAccessCountableIterator (extends MyArrayAccessIterator, implements Countable)
 * MyArrayAccessSerilzableIterator (extends MyArrayAccessIterator ,implaments Serializable)
-  
+* SplDoublyLinkedList
+Scans current directory without Itarators, just with php's directory functions and recursion.  
 ## How to run
 * Clone the project.
 
@@ -623,4 +624,15 @@ dir: MyIterator
 file: MyIterator.php
 file: README.md
 
+Usage of the SplDoublyLinkedList class:
+FIFO (First In First Out) :
+a
+b
+c
+d
+LIFO (Last In First Out) :
+d
+c
+b
+a
 ```
