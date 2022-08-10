@@ -124,3 +124,28 @@ foreach ($h as $item){
 echo '<br />Result of the serialized object:<pre>';
 var_dump($result);
 echo '</pre>';
+
+echo '<strong>Scan the root dir without iterators:</strong><br />';
+$dir = __DIR__;
+function ReadInDir($dir)
+{
+    if (is_dir($dir)) {
+        if ($dh = opendir($dir)) {
+            while (($file = readdir($dh)) !== false) {
+                if(is_dir($file)) {
+                    if (($file != '.') && ($file != '..')){
+                        echo "dir: $file <br />";
+                        chdir($file);
+                        ReadInDir(getcwd());
+                        //echo getcwd();
+                    }
+                } else {
+                    echo "file: $file <br />";
+                }
+            }
+            chdir('..');
+            closedir($dh);
+        }
+    }
+}
+ReadInDir($dir);
